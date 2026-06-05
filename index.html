@@ -67,7 +67,8 @@
         matches your interests, strengths and career goals.
     </p>
 
-    <button>Start Assessment</button>
+
+    <button onclick="startQuiz()">Start Assessment</button>
 
     <br><br><br>
 
@@ -75,5 +76,25 @@
 
 </div>
 
+    <script>
+function startQuiz() {
+    document.querySelector('.container').innerHTML = `
+        <h1>Question 1 of 50</h1>
+
+        <h2>Which project sounds most exciting?</h2>
+
+        <button>Build a Mobile App</button>
+        <br><br>
+
+        <button>Create an AI Chatbot</button>
+        <br><br>
+
+        <button>Design a Drone</button>
+        <br><br>
+
+        <button>Develop a Medical Device</button>
+    `;
+}
+</script>
 </body>
 </html>
