@@ -77,23 +77,71 @@
 </div>
 
     <script>
+function startQuiz() 
+        let currentQuestion = 0;
+
+const questions = [
+{
+question: "Which project sounds most exciting?",
+options: [
+"Build a Mobile App",
+"Create an AI Chatbot",
+"Design a Drone",
+"Develop a Medical Device"
+]
+},
+{
+question: "Which subject do you enjoy most?",
+options: [
+"Computer Science",
+"Mathematics",
+"Physics",
+"Biology"
+]
+}
+];
+
 function startQuiz() {
+    showQuestion();
+}
+
+function showQuestion() {
+
+    const q = questions[currentQuestion];
+
     document.querySelector('.container').innerHTML = `
-        <h1>Question 1 of 50</h1>
+        <h1>Question ${currentQuestion + 1} of ${questions.length}</h1>
 
-        <h2>Which project sounds most exciting?</h2>
+        <h2>${q.question}</h2>
 
-        <button>Build a Mobile App</button>
+        <button onclick="nextQuestion()">${q.options[0]}</button>
         <br><br>
 
-        <button>Create an AI Chatbot</button>
+        <button onclick="nextQuestion()">${q.options[1]}</button>
         <br><br>
 
-        <button>Design a Drone</button>
+        <button onclick="nextQuestion()">${q.options[2]}</button>
         <br><br>
 
-        <button>Develop a Medical Device</button>
+        <button onclick="nextQuestion()">${q.options[3]}</button>
     `;
+}
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+    if(currentQuestion >= questions.length){
+
+        document.querySelector('.container').innerHTML = `
+            <h1>Assessment Complete!</h1>
+            <h2>Results coming soon...</h2>
+        `;
+
+        return;
+    }
+
+    showQuestion();
 }
 </script>
 </body>
